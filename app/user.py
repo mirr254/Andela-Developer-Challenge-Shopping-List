@@ -20,6 +20,7 @@ class User(object):
     def deleteUser(self, userID):
         #make sure user id is a number
         if isinstance( userID, int):
-            #check if user exists then delete 
-            
+            #check if user exists then delete            
             pass
+        else:
+            raise ValueError

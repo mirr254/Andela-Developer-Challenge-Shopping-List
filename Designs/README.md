@@ -26,3 +26,10 @@ index.html: This is the homepage of the application where user is presented with
 signup.html: 
 
 A page to register new users. Uses email and password for registration
+
+OOP UML Diagram:
+
+![uml class diagram](https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/Designs/Shopping%20List%20UML.png)
+
+The UML diagram is prepared using www.creately.com and can be found on the link 
+http://creately.com/diagram/example/j6tsr7291

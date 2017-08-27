@@ -14,3 +14,4 @@ six==1.10.0
 Werkzeug==0.12.2
 wrapt==1.10.11
 python-coveralls
+codeclimate-test-reporter

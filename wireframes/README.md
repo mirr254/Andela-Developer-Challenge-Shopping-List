@@ -8,16 +8,16 @@ Links to the images:
 
 Log in wireframe : This handles the login of already registered users
 
-![login](https://github.com/mirr254/Andela-Developer-Challenge---Shopping-List-V2.0/blob/master/wireframes/mockup_images/Log%20in.png)
+![login](https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/wireframes/Log%20in.png)
 
 
 Signup wireframe : A UI of how the registration of new users would look like
 
-![signup wireframe image](https://github.com/mirr254/Andela-Developer-Challenge---Shopping-List-V2.0/blob/master/wireframes/mockup_images/Signup.png)
+![signup wireframe image](https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/wireframes/Signup.png)
 
 User Dashboard: This wireframe implemts Tabbed panels to manage various activities of the user. 
 
-![User dashboard](https://github.com/mirr254/Andela-Developer-Challenge---Shopping-List-V2.0/blob/master/wireframes/mockup_images/User%20Dashboard.png)
+![User dashboard](https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/wireframes/User%20Dashboard.png)
  
 
  Tabs contained here include: 

@@ -1,4 +1,7 @@
 # Andela-Developer-Challenge-Shopping-List
+
+![travis build pass](https://travis-ci.org/mirr254/Andela-Developer-Challenge-Shopping-List.svg?branch=master)
+
 The Andela Developer Challenge is founded on the premise that aspiring Technology Leaders learn programming whilst building things that matter. That the best way to learn code is by building a complete product. As we build applications that solve real problems, we internalize deeply the skills needed to be World Class Software Developers.
 
 Challenge:

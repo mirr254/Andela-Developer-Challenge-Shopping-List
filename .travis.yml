@@ -1,0 +1,17 @@
+language: python
+ -- "3.6"
+
+script:
+ - run_travis.sh
+
+before_install:
+  - chmod +x run_travis.sh
+
+# whitelist
+branches:
+  only:
+    - master
+    - flask_dev_branch
+
+#dependacies and libraries to install
+install: pip install -r requirements.txt

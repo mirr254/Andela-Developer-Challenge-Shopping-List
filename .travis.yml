@@ -1,17 +1,16 @@
 language: python
- -- "3.6"
+ - "3.6"
 
 script:
- - run_travis.sh
+ - tests/test_shoppinglist.py
 
 before_install:
-  - chmod +x run_travis.sh
+ - chmod +x tests/test_shoppinglist.py
 
 # whitelist
 branches:
   only:
     - master
-    - flask_dev_branch
 
 #dependacies and libraries to install
 install: pip install -r requirements.txt

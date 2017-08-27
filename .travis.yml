@@ -2,10 +2,10 @@ language: python
  - "3.6"
 
 script:
- - tests/test_shoppinglist.py
+ - tests/run_travis.sh
 
 before_install:
- - chmod +x tests/test_shoppinglist.py
+ - chmod +x tests/run_travis.sh
 
 # whitelist
 branches:

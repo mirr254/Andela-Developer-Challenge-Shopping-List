@@ -3,7 +3,7 @@ from app.shoppingcart import ShoppingList
 
 #a class to contain test cases for the shopping list
 class ShoppingListTest( unittest.TestCase ):
-
+    
     def setUp(self):
         budget_amount = 500
         self.shoppingList = ShoppingList(budget_amount)

@@ -12,18 +12,11 @@ The challenge of -----keeping track of shopping items---- is a need for -----man
 
 Description of the application:
 
-The innovative -----shopping list app----- is a web based application that  -----allows users  to record and share things they want to spend money on ----- meeting the needs of -----keeping track of their shopping lists -----.
+The innovative shopping list app is a web based application that allows users  to record and share things they want to spend money on  meeting the needs of keeping track of their shopping lists.
 
 First thing done was to create a project for the Whole Shopping List challenge on the pivotal tracker web.
 And creating required stories for all the challenges:
 
-Challenge 1:  https://www.pivotaltracker.com/story/show/150545547 
-
-Challenge 2:  https://www.pivotaltracker.com/story/show/150546010
-
-Challenge 3: https://www.pivotaltracker.com/story/show/150546182
-
-Challenge 4: https://www.pivotaltracker.com/story/show/150546292
 
 #Flask Application
 

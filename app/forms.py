@@ -1,16 +1,8 @@
 #use flask-WTF form
 from flask_wtf import FlaskForm
 from wtforms import TextField, IntegerField, BooleanField, PasswordField, SubmitField, StringField
-
 from wtforms import validators, ValidationError
 
-#Sign in class
-
-class SignIn(FlaskForm):
-    #username and password for login
-    email = TextField("Email",[validators.Required("Please enter your email address."),
-          validators.Email("Please enter a valid Email.")])
-    password = PasswordField("Password")
 
 #a class for signup or registration
 class UserRegistrationForm(FlaskForm):
@@ -26,8 +18,16 @@ class UserRegistrationForm(FlaskForm):
 
 #Admin registration will inherit from the UserRegistrationForm since admin is also a user but with 
 #rights
-
 class AdminRegistration( UserRegistrationForm ):
 
     #user level 1 is admin and 2 is normal user
     level = IntegerField('User Level', [validators.NumberRange(min=0, max=10)]) 
+
+#Sign in class inherit from UserRegistration and use only required fields
+class SignIn(UserRegistrationForm):
+
+# class SignIn(FlaskForm):
+    #username and password for login
+    email = TextField("Email",[validators.Required("Please enter your email address."),
+          validators.Email("Please enter a valid Email.")])
+    password = PasswordField("Password")

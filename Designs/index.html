@@ -21,7 +21,7 @@
                         <label class="sr-only" for="email">{{ form.email.label }}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            {{ form.email }} 
+                            {{ form.email(class="form-control") }} 
                          
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <label class="sr-only" for="password">{{ form.password.label }}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            {{ form.password() }}
+                            {{ form.password(class="form-control") }}
                             
                         </div>
                     </div>

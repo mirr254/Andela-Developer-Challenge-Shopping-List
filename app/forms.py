@@ -13,8 +13,8 @@ class SignIn(FlaskForm):
     password = PasswordField("Password")
 
 #a class for signup or registration
-class RegistrationForm(FlaskForm):
-    
+class UserRegistrationForm(FlaskForm):
+
     fname = StringField("First Name", [validators.InputRequired()])
     lname = StringField("Last Name", [validators.InputRequired()])
     email = StringField('Email Address', [validators.InputRequired(), 
@@ -22,3 +22,12 @@ class RegistrationForm(FlaskForm):
     password = PasswordField("password", [validators.InputRequired()])
     password_confirm = PasswordField("Confirm password", [validators.InputRequired()])
     accept_rules = BooleanField('I accept the site rules', [validators.InputRequired()])
+    submit = SubmitField("Signup")
+
+#Admin registration will inherit from the UserRegistrationForm since admin is also a user but with 
+#rights
+
+class AdminRegistration( UserRegistrationForm ):
+
+    #user level 1 is admin and 2 is normal user
+    level = IntegerField('User Level', [validators.NumberRange(min=0, max=10)]) 

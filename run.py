@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash
-from app.forms import SignIn, RegistrationForm
+from app.forms import SignIn, UserRegistrationForm, AdminRegistration
 
 app = Flask(__name__ ,template_folder='Designs')
 
@@ -22,17 +22,17 @@ def index():
 #route user to registration or signup form
 @app.route("/signup")
 def signup():
-    form = RegistrationForm()
+    form = UserRegistrationForm()
     #if it is a post request make sure to validate all fields
     if request.method == 'POST':
         if form.validate() == False:
             flash('Please fill up all fields.')
             return render_template("signup.html", form = form)
         else:
-            return render_template("dashboard.html")
+            return render_template("admin.html")
     elif request.method == "GET":
-        return render_template("signup.html", form = form)
-    
+        return render_template("admin_signup.html", form = form)
+
 
 #this will be after user is logged in
 @app.route("/dashboard")
@@ -40,10 +40,20 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-#redirect admin to his page
-@app.route("/admin/")
+#redirect admin to signup page if he is not signed up
+@app.route("/admin/signup")
 def adminDashboard():
-    return render_template("admin.html")
+    form = AdminRegistration()
+    #if it is a post request make sure to validate all fields
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('Please fill up all fields.')
+            return render_template("admin_signup.html", form = form)
+        else:
+            return render_template("admin_signup.html")
+    elif request.method == "GET":
+        return render_template("admin_signup.html", form = form)
+
 
 #run the app
 

@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<!-- Make the index html to inherit the other features from base html -->
+{% extends "base.html" %}
 
-    <!-- Site Properties -->
-    <title>Signup page</title>
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-</head>
-<body>
-
-        <div class="jumbotron text-center">
-          <h1>Create your Shopping List</h1>
-          <p>Keep track of shopping items, manage and share it with your friends</p> 
-        </div>
-
+{% block content %}
 
         <div class="container">
         <form class="form-horizontal" role="form" method="POST" action="/login">
@@ -31,15 +12,55 @@
                     <hr>
                 </div>
             </div>
+
+            <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="email">{{form.fname.label}}</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                                {{ form.fname(class="form-control")}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                <!-- <i class="fa fa-close"></i> Example error message --> <!-- Uncomment for the error to show up -->
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <div class="form-group has-danger">
+                                <label class="sr-only" for="email">{{form.lname.label}}</label>
+                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                                    {{ form.lname(class="form-control")}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-control-feedback">
+                                <span class="text-danger align-middle">
+                                    <!-- <i class="fa fa-close"></i> Example error message --> <!-- Uncomment for the error to show up -->
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group has-danger">
-                        <label class="sr-only" for="email">E-Mail Address</label>
+                        <label class="sr-only" for="email">{{form.email.label}}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            <input type="text" name="email" class="form-control" id="email"
-                                   placeholder="you@example.com" required autofocus>
+                            {{ form.email(class="form-control")}}
                         </div>
                     </div>
                 </div>
@@ -55,11 +76,10 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">Password</label>
+                        <label class="sr-only" for="password">{{ form.password.label}}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            <input type="password" name="password" class="form-control" id="password"
-                                   placeholder="Password" required>
+                           {{ form.password(class="form-control") }}
                         </div>
                     </div>
                 </div>
@@ -75,11 +95,10 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">Confirm Password</label>
+                        <label class="sr-only" for="password">{{form.password_confirm.label}}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            <input type="password" name="password" class="form-control" id="confirm_password"
-                                   placeholder="Confirm Password" required>
+                            {{ form.password_confirm(class="form-control") }}
                         </div>
                     </div>
                 </div>
@@ -94,9 +113,8 @@
 
             <div class="row" style="padding-top: 1rem">
                 <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Signup</button>                    
-                   
+                <div class="col-md-6">                                       
+                    {{ form.submit(class="btn btn-success") }}
                 </div>
 
                 
@@ -105,5 +123,4 @@
 
         </form>
     </div>
-</body>
-</html>
+{% endblock %}

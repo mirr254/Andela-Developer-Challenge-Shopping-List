@@ -1,6 +1,6 @@
 #use flask-WTF form
 from flask_wtf import FlaskForm
-from wtforms import TextField, IntegerField, BooleanField, PasswordField, SubmitField
+from wtforms import TextField, IntegerField, BooleanField, PasswordField, SubmitField, StringField
 
 from wtforms import validators, ValidationError
 
@@ -9,5 +9,16 @@ from wtforms import validators, ValidationError
 class SignIn(FlaskForm):
     #username and password for login
     email = TextField("Email",[validators.Required("Please enter your email address."),
-      validators.Email("Please enter a valid Email.")])
+          validators.Email("Please enter a valid Email.")])
     password = PasswordField("Password")
+
+#a class for signup or registration
+class RegistrationForm(FlaskForm):
+    
+    fname = StringField("First Name", [validators.InputRequired()])
+    lname = StringField("Last Name", [validators.InputRequired()])
+    email = StringField('Email Address', [validators.InputRequired(), 
+                       validators.Email("Please provide a valid email")])
+    password = PasswordField("password", [validators.InputRequired()])
+    password_confirm = PasswordField("Confirm password", [validators.InputRequired()])
+    accept_rules = BooleanField('I accept the site rules', [validators.InputRequired()])

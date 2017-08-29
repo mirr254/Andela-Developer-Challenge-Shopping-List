@@ -8,15 +8,15 @@ app.secret_key = "M@0$"
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
-    sigin_form = SignIn()
+    form = SignIn()
     if request.method == 'POST':
-        if sigin_form.validate() == False:
+        if form.validate() == False:
             flash('Please fill up all fields.')
-            return render_template("index.html", form = sigin_form)
+            return render_template("index.html", form = form)
         else:
             return render_template("dashboard.html")
     elif request.method == "GET":
-        return render_template("index.html", form = sigin_form)
+        return render_template("index.html", form = form)
 
 @app.route("/signup")
 def signup():

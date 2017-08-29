@@ -3,17 +3,8 @@
 
 {% block content %}
 
-        <div class="container">
-        
-            <!-- A row for errors -->
-            <div class="row"> 
-                <div class="col-md-3"></div>
-                {% for messages in sigin_form.email.errors %}
-                <div class="col-md-6">
-                    {% messages %}
-                </div>
-                {% endfor %}
-            </div>
+        <div class="container">    
+            
         <form class="form-horizontal" role="form" method="POST" action="/login">
             <div class="row">
                 <div class="col-md-3"></div>
@@ -27,11 +18,10 @@
                 <div class="col-md-6">
                     <div class="form-group has-danger">
 
-                        <label class="sr-only" for="email">E-Mail Address</label>
+                        <label class="sr-only" for="email">{{ form.email.label }}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            <input type="text" name="email" class="form-control" id="email"
-                                   placeholder="you@example.com" required autofocus>
+                            {{ form.email }}                      
                         </div>
                     </div>
                 </div>
@@ -47,11 +37,11 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">Password</label>
+                        <label class="sr-only" for="password">{{ form.password.label }}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            <input type="password" name="password" class="form-control" id="password"
-                                   placeholder="Password" required>
+                            {{ form.password() }}
+                            
                         </div>
                     </div>
                 </div>

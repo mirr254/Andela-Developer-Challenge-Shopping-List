@@ -22,11 +22,15 @@ And creating required stories for all the challenges:
 
 The file app.py is used to run the flask application. To run it use
 
-    python app.py  it will run a local webserver on http://127.0.0.1:5000 
+    python run.py  it will run a local webserver on http://127.0.0.1:5000 
 
 To navigate to signup page use url http://127.0.0.1:5000/signup
 
 To navigate to signin/login use url http://127.0.0.1:5000/ since it's the default homepage
 
 To navigate to user dashboard use url http://127.0.0.1:5000/dashboard 
+
+#Heroku application
+
+The URL to heroku for the application https://shopping-list-challenge.herokuapp.com/
 

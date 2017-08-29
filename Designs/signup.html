@@ -3,7 +3,7 @@
 
 {% block content %}
 
-        <div class="container">
+<div class="container">
         <form class="form-horizontal" role="form" method="POST" action="/login">
             <div class="row">
                 <div class="col-md-3"></div>
@@ -12,55 +12,15 @@
                     <hr>
                 </div>
             </div>
-
-            <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <div class="form-group has-danger">
-                            <label class="sr-only" for="email">{{form.fname.label}}</label>
-                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                {{ form.fname(class="form-control")}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-control-feedback">
-                            <span class="text-danger align-middle">
-                                <!-- <i class="fa fa-close"></i> Example error message --> <!-- Uncomment for the error to show up -->
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <div class="form-group has-danger">
-                                <label class="sr-only" for="email">{{form.lname.label}}</label>
-                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                    {{ form.lname(class="form-control")}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-control-feedback">
-                                <span class="text-danger align-middle">
-                                    <!-- <i class="fa fa-close"></i> Example error message --> <!-- Uncomment for the error to show up -->
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group has-danger">
-                        <label class="sr-only" for="email">{{form.email.label}}</label>
+                        <label class="sr-only" for="email">E-Mail Address</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            {{ form.email(class="form-control")}}
+                            <input type="text" name="email" class="form-control" id="email"
+                                   placeholder="you@example.com" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -76,10 +36,11 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">{{ form.password.label}}</label>
+                        <label class="sr-only" for="password">Password</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                           {{ form.password(class="form-control") }}
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Password" required>
                         </div>
                     </div>
                 </div>
@@ -95,10 +56,11 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">{{form.password_confirm.label}}</label>
+                        <label class="sr-only" for="password">Confirm Password</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            {{ form.password_confirm(class="form-control") }}
+                            <input type="password" name="password" class="form-control" id="confirm_password"
+                                   placeholder="Confirm Password" required>
                         </div>
                     </div>
                 </div>
@@ -113,8 +75,9 @@
 
             <div class="row" style="padding-top: 1rem">
                 <div class="col-md-3"></div>
-                <div class="col-md-6">                                       
-                    {{ form.submit(class="btn btn-success") }}
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Signup</button>                    
+                   
                 </div>
 
                 

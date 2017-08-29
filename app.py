@@ -3,17 +3,20 @@ from app.forms import SignIn
 
 app = Flask(__name__ ,template_folder='Designs')
 
+#set up secret key for crsf
+app.secret_key = "M@0$"
+
 @app.route("/", methods = ["GET", "POST"])
 def index():
     sigin_form = SignIn()
     if request.method == 'POST':
-        if sigin_form.validate() = False:
+        if sigin_form.validate() == False:
             flash('Please fill up all fields.')
             return render_template("index.html", form = sigin_form)
         else:
             return render_template("dashboard.html")
-        elif request.method == "GET":
-            return render_template("index.html", form = sigin_form)
+    elif request.method == "GET":
+        return render_template("index.html", form = sigin_form)
 
 @app.route("/signup")
 def signup():

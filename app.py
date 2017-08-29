@@ -26,4 +26,4 @@ def signup():
 def dashboard():
     return render_template("dashboard.html")
 
-app.run(debug=True)
+app.run(debug=True )

@@ -42,7 +42,7 @@ def dashboard():
 
 #redirect admin to signup page if he is not signed up
 @app.route("/admin/signup")
-def adminDashboard():
+def adminSignup():
     form = AdminRegistration()
     #if it is a post request make sure to validate all fields
     if request.method == 'POST':
@@ -50,9 +50,13 @@ def adminDashboard():
             flash('Please fill up all fields.')
             return render_template("admin_signup.html", form = form)
         else:
-            return render_template("admin_signup.html")
+            return render_template("admin_dashboard.html")
     elif request.method == "GET":
         return render_template("admin_signup.html", form = form)
+
+@app.route("/resetpassword")
+def passwdReset():
+    return render_template("pass_reset.html")
 
 
 #run the app

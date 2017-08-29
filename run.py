@@ -9,29 +9,12 @@ app.secret_key = "M@0$"
 #route users to home page
 @app.route("/", methods = ["GET", "POST"])
 def index():
-    form = SignIn()
-    if request.method == 'POST':
-        if form.validate() == False:
-            flash('Please fill up all fields.')
-            return render_template("index.html", form = form)
-        else:
-            return render_template("dashboard.html")
-    elif request.method == "GET":
-        return render_template("index.html", form = form)
+    return render_template("index.html")
 
 #route user to registration or signup form
 @app.route("/signup")
 def signup():
-    form = UserRegistrationForm()
-    #if it is a post request make sure to validate all fields
-    if request.method == 'POST':
-        if form.validate() == False:
-            flash('Please fill up all fields.')
-            return render_template("signup.html", form = form)
-        else:
-            return render_template("dashboard.html")
-    elif request.method == "GET":
-        return render_template("signup.html", form = form)
+    return render_template("signup.html")
 
 
 #this will be after user is logged in
@@ -43,16 +26,7 @@ def dashboard():
 #redirect admin to signup page if he is not signed up
 @app.route("/admin/signup")
 def adminSignup():
-    form = AdminRegistration()
-    #if it is a post request make sure to validate all fields
-    if request.method == 'POST':
-        if form.validate() == False:
-            flash('Please fill up all fields.')
-            return render_template("admin_signup.html", form = form)
-        else:
-            return render_template("admin_dashboard.html")
-    elif request.method == "GET":
-        return render_template("admin_signup.html", form = form)
+    return render_template("admin_signup.html")
 
 @app.route("/resetpassword")
 def passwdReset():

@@ -20,7 +20,7 @@
                             <label class="sr-only" for="email">First Name</label>
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                {{ form.fname(class="form-control")}}
+                                {{ adminform.fname(class="form-control")}}
                             </div>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div class="form-group has-danger">
-                                <label class="sr-only" for="email">{{form.lname.label}}</label>
+                                <label class="sr-only" for="email">{{adminform.lname.label}}</label>
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                     <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                    {{ form.lname(class="form-control")}}
+                                    {{ adminform.lname(class="form-control")}}
                                 </div>
                             </div>
                         </div>
@@ -57,10 +57,10 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group has-danger">
-                        <label class="sr-only" for="email">{{form.email.label}}</label>
+                        <label class="sr-only" for="email">{{adminform.email.label}}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            {{ form.email(class="form-control")}}
+                            {{ adminform.email(class="form-control")}}
                         </div>
                     </div>
                 </div>
@@ -76,10 +76,10 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">{{ form.password.label}}</label>
+                        <label class="sr-only" for="password">{{ adminform.password.label}}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                           {{ form.password(class="form-control") }}
+                           {{ adminform.password(class="form-control") }}
                         </div>
                     </div>
                 </div>
@@ -95,10 +95,10 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="sr-only" for="password">{{form.password_confirm.label}}</label>
+                        <label class="sr-only" for="password">{{adminform.password_confirm.label}}</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            {{ form.password_confirm(class="form-control") }}
+                            {{ adminform.password_confirm(class="form-control") }}
                         </div>
                     </div>
                 </div>
@@ -117,10 +117,10 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="sr-only" for="password">{{form.level.label}}</label>
+                            <label class="sr-only" for="password">{{adminform.level.label}}</label>
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                                {{ form.level(class="form-control") }}
+                                {{ adminform.level(class="form-control") }}
                             </div>
                         </div>
                     </div>                    
@@ -129,7 +129,7 @@
             <div class="row" style="padding-top: 1rem">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">                                       
-                    {{ form.submit(class="btn btn-success") }}
+                    {{ adminform.submit(class="btn btn-success") }}
                 </div>
 
                 

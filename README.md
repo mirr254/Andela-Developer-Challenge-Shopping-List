@@ -32,7 +32,14 @@ To navigate to user dashboard use url http://127.0.0.1:5000/dashboard
 
 Admin feature also added. This will differentiate from reqular users to perfom administrative functionalities like deleting a user
 
- http://127.0.0.1:5000/admin/ 
+ http://127.0.0.1:5000/admin/
+
+ 
+ http://127.0.0.1:5000/admin/admin_dashboard
+
+
+ http://127.0.0.1:5000/admin/signup
+
 
 
 #Heroku application

@@ -21,7 +21,9 @@ class UserRegistrationForm(FlaskForm):
 class AdminRegistration( UserRegistrationForm ):
 
     #user level 1 is admin and 2 is normal user
-    level = IntegerField('User Level', [validators.NumberRange(min=0, max=10)]) 
-
-#Sign in class inherit from UserRegistration and use only required fields
+    level = IntegerField('User Level', [validators.NumberRange(min=0, max=10)])#Sign in class inherit from UserRegistration and use only required fields
 class SignIn(UserRegistrationForm):
+
+    email = TextField("Email",[validators.Required("Please enter your email address."),
+          validators.Email("Please enter a valid Email.")])
+    password = PasswordField("Password")

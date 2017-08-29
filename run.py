@@ -29,7 +29,7 @@ def signup():
             flash('Please fill up all fields.')
             return render_template("signup.html", form = form)
         else:
-            return render_template("admin.html")
+            return render_template("dashboard.html")
     elif request.method == "GET":
         return render_template("signup.html", form = form)
 

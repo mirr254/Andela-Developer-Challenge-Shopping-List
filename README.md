@@ -30,7 +30,14 @@ To navigate to signin/login use url http://127.0.0.1:5000/ since it's the defaul
 
 To navigate to user dashboard use url http://127.0.0.1:5000/dashboard 
 
+Admin feature also added. This will differentiate from reqular users to perfom administrative functionalities like deleting a user
+
+ http://127.0.0.1:5000/admin/ 
+
+
 #Heroku application
+
+All the extenstions above for signup,dashboard and admin are also used by the remote app
 
 The URL to heroku for the application https://shopping-list-challenge.herokuapp.com/
 

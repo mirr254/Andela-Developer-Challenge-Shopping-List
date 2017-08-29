@@ -32,6 +32,7 @@ def signup():
             return render_template("dashboard.html")
     elif request.method == "GET":
         return render_template("signup.html", form = form)
+    
 
 #this will be after user is logged in
 @app.route("/dashboard")

@@ -31,7 +31,7 @@ def signup():
         else:
             return render_template("admin.html")
     elif request.method == "GET":
-        return render_template("admin_signup.html", form = form)
+        return render_template("signup.html", form = form)
 
 
 #this will be after user is logged in

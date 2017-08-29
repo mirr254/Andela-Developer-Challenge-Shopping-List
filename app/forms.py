@@ -25,9 +25,3 @@ class AdminRegistration( UserRegistrationForm ):
 
 #Sign in class inherit from UserRegistration and use only required fields
 class SignIn(UserRegistrationForm):
-
-# class SignIn(FlaskForm):
-    #username and password for login
-    email = TextField("Email",[validators.Required("Please enter your email address."),
-          validators.Email("Please enter a valid Email.")])
-    password = PasswordField("Password")

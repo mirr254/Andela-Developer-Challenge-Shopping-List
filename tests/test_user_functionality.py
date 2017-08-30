@@ -12,3 +12,6 @@ class UserFunctionalityTests( unittest.TestCase):
     def test_if_deleteUser_accepts_intID(self):
         self.assertRaises( ValueError, self.user.deleteUser, "two")
 
+    #test addUser pass is not empty
+    def
+

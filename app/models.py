@@ -3,21 +3,15 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 
+system_users = {}
 
-class User(object):
-
-    def __init__(self,userID, fname,lname, email, password):
-            self.user_id = userID
-            self.f_name = fname
-            self.l_name = lname        
-            self.email = email
-            self.password = password    
-            
-
+class User(object): 
     
-    def __repr__(self):
-        return '<User %r>' % self.email
-            
+    def __init__(self, fname, email, password):
+
+        self.f_name = fname               
+        self.email = email
+        self.password = password
 
     #a function to delete user depending given id
     def deleteUser(self, userID):
@@ -27,3 +21,17 @@ class User(object):
             pass
         else:
             raise ValueError
+
+#add user
+def addUser(fname, email, password):
+
+    if not password:
+        return "password cannot be blank"
+
+    if isinstance(fname, str) and isinstance(email, str):
+        new_usr = User(fname, email, password)
+        system_users[email] = new_usr
+    else:
+        raise ValueError
+
+    

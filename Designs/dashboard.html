@@ -3,24 +3,54 @@
 
 {% block content %}
 
-        <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <a href="#">View Shopping List</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Shared Shopping List</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Deleted Shopping List</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Completed Shopping List</a>
-        </div>
-
+<div class="container">
+      <div class="row">
+          <!-- <div class="col-md-6"></div> -->
+          <div class="col-md-3">
+              <h2>Please Login</h2>
+              <hr>
+          </div>
       </div>
+
+      <!-- Tabs go here -->
+
+      <div class="row">
+
+        <div class="col-md-3">
+          
+          <ul class="nav nav-tabs nav-stacked">
+            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li><a data-toggle="tab" href="#shared">Shared Lists</a></li>
+            <li><a data-toggle="tab" href="#deleted">Dleted Lists</a></li>
+          </ul>
+
+        </div>
+
+        <div class="col-md-6"> 
+          <!-- Tab content goes here -->
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                  <h3>HOME</h3>
+                  <p>List goes here by default</p>
+                </div>
+                <div id="shared" class="tab-pane fade">
+                  <h3>Items that you have shared with your friends</h3>
+                  <p>Shared content go here</p>
+                </div>
+                <div id="deleted" class="tab-pane fade">
+                  <h3>Below is a list of your deleted items</h3>
+                  <p> Deleted Lists come here .</p>
+                </div>
+              </div>
+
+        </div>
+
+        
+      </div>
+      
+        
+</div>
+
         
 {% endblock %}

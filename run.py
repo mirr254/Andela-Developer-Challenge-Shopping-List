@@ -22,6 +22,10 @@ def signup():
 def dashboard():
     return render_template("dashboard.html")
 
+@app.route("/admin")
+def adminSign():
+    return render_template("admin.html")
+
 
 #redirect admin to signup page if he is not signed up
 @app.route("/admin/signup")
@@ -30,6 +34,10 @@ def adminSignup():
 
 @app.route("/resetpassword")
 def passwdReset():
+    return render_template("pass_reset.html")
+
+@app.route("/admin/resetpassword")
+def adminPasswdReset():
     return render_template("pass_reset.html")
 
 

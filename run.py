@@ -17,8 +17,14 @@ def signup():
     form = UserRegistrationForm()
     if request.method == "GET":
         return render_template("signup.html", form=form)
-    elif r:
-        pass
+    elif request.method == "POST":
+        if form.validate_on_submit():
+            if "user exists":
+                return "Email taken"
+            else:
+                return "create our user here"
+        else:
+            return "form didnt validate"
 
 
 #this will be after user is logged in

@@ -14,6 +14,7 @@ class UserRegistrationForm(FlaskForm):
     password = PasswordField("password", [validators.InputRequired()])
     password_confirm = PasswordField("Confirm password", [validators.InputRequired()])
     accept_rules = BooleanField('I accept the site rules', [validators.InputRequired()])
+    password_confirm = PasswordField("Confirm password", [validators.InputRequired()])
     submit = SubmitField("Signup")
 
 #Admin registration will inherit from the UserRegistrationForm since admin is also a user but with 

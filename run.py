@@ -12,9 +12,13 @@ def index():
     return render_template("index.html")
 
 #route user to registration or signup form
-@app.route("/signup")
+@app.route("/signup", methods = ["GET", "POST"])
 def signup():
-    return render_template("signup.html")
+    form = UserRegistrationForm()
+    if request.method == "GET":
+        return render_template("signup.html", form=form)
+    elif r:
+        pass
 
 
 #this will be after user is logged in

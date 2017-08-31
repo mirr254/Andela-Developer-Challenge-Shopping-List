@@ -3,6 +3,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 
+
 system_users = {}
 
 class User(object): 
@@ -25,8 +26,8 @@ class User(object):
 #add user
 def addUser(fname, email, password):
 
-    if not password:
-        return "password cannot be blank"
+    if password == "":
+        raise ValueError
 
     if isinstance(fname, str) and isinstance(email, str):
         new_usr = User(fname, email, password)

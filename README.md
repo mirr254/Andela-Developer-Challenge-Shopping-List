@@ -30,4 +30,8 @@ To navigate to signin/login use url http://127.0.0.1:5000/ since it's the defaul
 
 To navigate to user dashboard use url http://127.0.0.1:5000/dashboard 
 
-#
+# Flask Application on heroku
+
+The extensions applied in localhost are similar to remote app as shown below  
+
+https://shopping-list-challenge.herokuapp.com/signup/

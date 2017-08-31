@@ -8,8 +8,8 @@ app = Flask(__name__ ,template_folder='Designs')
 def index():
     return render_template("index.html")
 
-@app.route("/signup")
-def signup():
+@app.route("/signup/", methods=['POST'])
+def signupUser():
     password =request.form['password']
     email =request.form['email']
     fname =request.form['fname']    
@@ -21,6 +21,10 @@ def signup():
     
     addUser(fname, email, password)
     return render_template("dashboard.html", fname=fname, email=email )
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 
 @app.route("/dashboard", methods=["POST"])
 def dashboard():

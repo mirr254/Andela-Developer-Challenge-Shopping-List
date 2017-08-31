@@ -4,8 +4,7 @@
 {% block content %}
 
 <div class="container">
-        <form class="form-horizontal" role="form" method="POST" action="/signup">
-            {{ form.hidden_tag() }}
+        <form class="form-horizontal" role="form" method="POST" action="{{ url_for('signupUser') }}">           
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -20,7 +19,8 @@
                         <label class="control-label col-sm-3" for="email">E-Mail</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            {{ form.email(class= "form-control") }}
+                            <input type="text" name="email" class="form-control" id="email"
+                            placeholder="you@example.com" required autofocus>
                             
                         </div>
                     </div>
@@ -41,7 +41,8 @@
                             <label class="control-label col-sm-3" for="email">First Name</label>
                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                 <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                {{ form.fname(class= "form-control") }}
+                                <input type="text" name="fname" class="form-control" id="fname"
+                                placeholder="First Name" required>
                             </div>
                         </div>
                     </div>
@@ -53,26 +54,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <div class="form-group has-danger">
-                                <label class="control-label col-sm-3" for="email">Last Name</label>
-                                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                    {{ form.lname(class= "form-control") }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-control-feedback">
-                                <span class="text-danger align-middle">
-                                    <!-- <i class="fa fa-close"></i> Example error message --> <!-- Uncomment for the error to show up -->
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                
 
             <div class="row">
                 <div class="col-md-3"></div>
@@ -81,7 +63,8 @@
                         <label class="control-label col-sm-3" for="password">Password</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            {{ form.password(class= "form-control") }}
+                            <input type="password" name="password" class="form-control" id="password"
+                            placeholder="Password" required>
                         </div>
                     </div>
                 </div>
@@ -100,7 +83,8 @@
                         <label class="control-label col-sm-3" for="password">Confirm Password</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                            {{ form.password_confirm(class= "form-control") }}
+                            <input type="password" name="password_confirm" class="form-control" id="password_confirm"
+                            placeholder="Password" required>
                         </div>
                     </div>
                 </div>

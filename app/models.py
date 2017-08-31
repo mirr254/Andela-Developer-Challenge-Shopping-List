@@ -8,15 +8,15 @@ system_users = {}
 class User(object): 
     
     def __init__(self, fname, email, password):
-
+        
         self.f_name = fname               
-        self.email = email
+        self.email = email #since it will be unique, it will be used as id
         self.password = password
 
     #a function to delete user depending given id
-    def deleteUser(self, userID):
+    def deleteUser(self, email):
         #make sure user id is a number
-        if isinstance( userID, int):
+        if isinstance( email, str):
             #check if user exists then delete            
             pass
         else:

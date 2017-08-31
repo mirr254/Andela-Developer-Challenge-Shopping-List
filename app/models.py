@@ -6,6 +6,8 @@ from flask import Flask
 
 system_users = {}
 
+shoppingCart = {}
+
 class User(object): 
     
     def __init__(self, fname, email, password):
@@ -19,9 +21,20 @@ class User(object):
         #make sure user id is a number
         if isinstance( email, str):
             #check if user exists then delete            
-            pass
+            if email in system_users.keys():
+                system_users.pop(email) #maintains mutability
+
         else:
             raise ValueError
+
+################################## end of user class #####################################
+
+class ShoppingList(object):
+
+    def __init__():
+        pass
+
+
 
 #add user
 def addUser(fname, email, password):
@@ -35,4 +48,15 @@ def addUser(fname, email, password):
     else:
         raise ValueError
 
-    
+
+"""
+check if user exists
+
+key = email
+
+"""
+def checkKeyValuePairExistence(dic, key, value):
+    try:
+        return dic[key] == value
+    except KeyError:
+        return False

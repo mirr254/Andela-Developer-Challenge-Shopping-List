@@ -5,6 +5,9 @@ from flask_login import login_required, login_user, logout_user
 from . import auth
 from .forms import LoginForm, RegistrationForm
 
+users = {}
+logged_in_user = None
+
 
 @auth.route("/register", methods=['GET', 'POST'])
 def register():
@@ -22,6 +25,10 @@ def register():
         
 
         # add new user to list        
+        logged_in_user = form.email.data
+        users[logged_in_user] = user
+
+        #alert user to login
         flash('You have successfully registered! You may now login.')
 
         # redirect to the login page
@@ -38,7 +45,20 @@ def login():
     """
     form = LoginForm()
     if form.validate_on_submit():
-        pass       
+        if form.email.data in users.keys(): #email is correct
+            user_account = users[ form.email.data ]
+
+            #check if password exists
+            if user_account.password == form.password.data:
+                return redirect( url_for('home.dashboard'))
+            
+            flash("Sorry, password or email incorrect")
+            #redirect to the login page
+            return redirect(url_for('auth.login'))
+
+        flash("Sorry, password or email incorrect")
+        #redirect to the login page
+        return redirect(url_for('auth.login'))
 
     # load login template
     return render_template('auth/login.html', form=form, title='Login')

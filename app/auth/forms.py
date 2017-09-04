@@ -3,7 +3,7 @@ from wtforms import PasswordField, StringField, SubmitField, ValidationError
 from wtforms.validators import DataRequired, Email, EqualTo
 
 
-class RegistrationForm(FlaskForm):
+class RegistrationForm(FlaskForm): 
     """
     Form for users to create new account
     """

@@ -1,4 +1,5 @@
-from flask import render_template
+from flask import render_template, redirect, url_for, flash
+from app.auth.views import logged_in_user
 from .shoppinglist_form import ShoppingList
 
 from . import home
@@ -12,6 +13,11 @@ def homepage():
 
 @home.route('/dashboard')
 def dashboard():
+
+    #check if user is logged in
+    if logged_in_user == None:
+        flash("You must be logged in to access this page")
+        return redirect( url_for('auth.login'))
     
     form = ShoppingList()
     if form.validate_on_submit():

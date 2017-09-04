@@ -25,7 +25,7 @@ def register():
         
 
         # add new user to list        
-        logged_in_user = form.email.data
+        
         users[logged_in_user] = user
 
         #alert user to login
@@ -50,6 +50,7 @@ def login():
 
             #check if password exists
             if user_account.password == form.password.data:
+                logged_in_user = form.email.data
                 return redirect( url_for('home.dashboard'))
             
             flash("Sorry, password or email incorrect")
@@ -71,7 +72,7 @@ def logout():
     Handle requests to the /logout route
     Log a user out through the logout link
     """
-    logout_user()
+    logged_in_user = None
     flash('You have successfully been logged out.')
 
     # redirect to the login page

@@ -10,7 +10,7 @@ The Andela Developer Challenge is founded on the premise that aspiring Technolog
 
 The challenge of -----keeping track of shopping items---- is a need for -----many individuals----- that requires an innovative and robust solution that will ----- allow them to remember and share the shopping lists with others -----.
 
-Description of the application:
+## Description of the application:
 
 The innovative shopping list app is a web based application that allows users  to record and share things they want to spend money on  meeting the needs of keeping track of their shopping lists.
 
@@ -22,16 +22,10 @@ And creating required stories for all the challenges:
 
 The file app.py is used to run the flask application. To run it use
 
-    python app.py  it will run a local webserver on http://127.0.0.1:5000 
+    python run.py  
+    
+it will run a local webserver on http://127.0.0.1:5000 and user will be provided with a home page
 
-To navigate to signup page use url http://127.0.0.1:5000/signup
+## App on Heroku
 
-To navigate to signin/login use url http://127.0.0.1:5000/ since it's the default homepage
-
-To navigate to user dashboard use url http://127.0.0.1:5000/dashboard 
-
-## Flask Application on heroku
-
-The extensions applied in localhost are similar to remote app as shown below  
-
-https://shopping-list-challenge.herokuapp.com/
+To run the app on heroku user visists the url  https://shopping-list-challenge.herokuapp.com/

@@ -1,17 +1,6 @@
-from flask import Flask, render_template
+from app import createApp
 
-app = Flask(__name__ ,template_folder='Designs')
+app = createApp()
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
-
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
-
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)

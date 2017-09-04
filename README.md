@@ -6,7 +6,7 @@ Coverall badge [![Coverage Status](https://coveralls.io/repos/github/mirr254/And
 
 The Andela Developer Challenge is founded on the premise that aspiring Technology Leaders learn programming whilst building things that matter. That the best way to learn code is by building a complete product. As we build applications that solve real problems, we internalize deeply the skills needed to be World Class Software Developers.
 
-Challenge:
+## Challenge:
 
 The challenge of -----keeping track of shopping items---- is a need for -----many individuals----- that requires an innovative and robust solution that will ----- allow them to remember and share the shopping lists with others -----.
 
@@ -18,7 +18,7 @@ First thing done was to create a project for the Whole Shopping List challenge o
 And creating required stories for all the challenges:
 
 
-#Flask Application
+## Flask Application
 
 The file app.py is used to run the flask application. To run it use
 
@@ -30,8 +30,8 @@ To navigate to signin/login use url http://127.0.0.1:5000/ since it's the defaul
 
 To navigate to user dashboard use url http://127.0.0.1:5000/dashboard 
 
-# Flask Application on heroku
+## Flask Application on heroku
 
 The extensions applied in localhost are similar to remote app as shown below  
 
-https://shopping-list-challenge.herokuapp.com/signup/
+https://shopping-list-challenge.herokuapp.com/

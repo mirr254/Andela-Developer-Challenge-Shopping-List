@@ -1,7 +1,6 @@
 <!-- Inherit the other header part from the base html -->
 {% extends "base.html" %}
 {% import "bootstrap/utils.html" as utils %}
-
 {% import "bootstrap/wtf.html" as wtf %}   <!-- will be used to create the form to fill out shoppinglist -->
 {% block content %}
 
@@ -28,7 +27,7 @@
         </div>
 
         <div class="col-md-6"> 
-            {{logged_in_user}}
+            
         </div>
         <div class="col-md-6"> 
           <!-- Tab content goes here -->
@@ -39,11 +38,9 @@
                   <h3>HOME</h3>
                   <p>{{ utils.flashed_messages() }}</p>
                   
-                </div>     
-                
-                
+                </div>          
 
-              </div>
+            </div>
 
         </div>
         

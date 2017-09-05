@@ -20,7 +20,7 @@
         <div class="col-md-3">
           
           <ul class="nav nav-tabs nav-stacked">
-            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li class="active"><a data-toggle="tab" href="#home">Add New</a></li>
             
           </ul>
 
@@ -35,19 +35,9 @@
                   <h3>HOME</h3>
                   <p>{{ utils.flashed_messages() }}</p>
 
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Item Name</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    
-                    <tr>
+                  {{ wtf.quick_form(form) }}
 
-                    </tr>
-                    <tbody>
+                  
                 </div>                
 
               </div>

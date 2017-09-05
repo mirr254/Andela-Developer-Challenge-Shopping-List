@@ -21,8 +21,7 @@ def calculatePrice(price, quantity):
     total_amount = price * quantity
     return total_amount
 
-def addToDic(key, value):
-    key = "somekey"
+def addToDic(key, value):    
     shopping_lists.setdefault(key, [])
     shopping_lists[key].append(value)
 
@@ -35,24 +34,29 @@ def homepage():
 
     return render_template('home/index.html', title="Welcome")
 
-@home.route('/dashboard')
-def dashboard():
+@home.route('/add-new', methods=['POST', 'GET'])
+def newlist():
 
     #check if user is logged in
-    if logged_in_user == None:
-        flash("You must be logged in to access this page")
-        return redirect( url_for('auth.login'))
+    # if logged_in_user == None:
+    #     flash("You must be logged in to access this page")
+    #     return redirect( url_for('auth.login'))
     
     form = ShoppingList()
     if form.validate_on_submit():
         #insert to list
-        item_id = len( shopping_lists ) + 1
-        shopping_list = ShoppingCart(logged_in_user, form.item_name.data, form.price.data, 
-                                        form.quantity.data, item_id)
+        item_id = len( shopping_lists ) + 1        
+        shopping_list = ShoppingCart(logged_in_user, form.title.data, form.price.data, 
+                                        form.quantity.data, item_id, form.description.data)
         addToDic(logged_in_user, shopping_list)
-        pass
+        result = shopping_lists
+        flash("List saved okay")
+        return render_template('home/dashboard.html', title="Dashboard", result = result)
 
         #
-    
     #Render the dashboard template on the /dashboard route    
-    return render_template('home/dashboard.html',form=form, title="Dashboard")
+    return render_template('home/newlist.html',form=form, title="Add new")
+
+@home.route('/dashboard')
+def dashboard():
+    return render_template("home/dashboard.html")

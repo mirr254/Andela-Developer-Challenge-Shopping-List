@@ -11,8 +11,5 @@ class ShoppingList(FlaskForm):
     price = IntegerField('Price', validators=[DataRequired()])
     quantity = IntegerField('Quantity', validators=[DataRequired()])
     description = TextField('Description')    
-    submit = SubmitField('Register')
+    submit = SubmitField('Add')
 
-
-class Item(object): 
-    pass

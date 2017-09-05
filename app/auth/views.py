@@ -63,7 +63,7 @@ def logout():
     Handle requests to the /logout route
     Log a user out through the logout link
     """
-    logged_in_user = None
+    session["logged_in"] = None
     flash('You have successfully been logged out.')
 
     # redirect to the login page

@@ -36,9 +36,9 @@ def homepage():
 def newlist():
 
     #check if user is logged in
-    if not session.logged_in:
-        flash("You must be logged in to access this page")
-        return redirect( url_for('auth.login'))
+    # if not session["logged_in"]:
+    #     flash("You must be logged in to access this page")
+    #     return redirect( url_for('auth.login'))
     
     form = ShoppingList()
     if form.validate_on_submit():
@@ -56,8 +56,9 @@ def newlist():
 
 @home.route('/dashboard')
 def dashboard():
-    if session.logged_in:        
-        return render_template("home/dashboard.html" )
-    else:
-        flash("You must be logged in to access this page")
-        return redirect(url_for('auth.login') )
+    # if session["logged_in"] == True:        
+    #     return render_template("home/dashboard.html" )
+    #else:
+    #flash("You must be logged in to access this page")
+    #return redirect(url_for('auth.login') )
+    return render_template("home/dashboard.html" )

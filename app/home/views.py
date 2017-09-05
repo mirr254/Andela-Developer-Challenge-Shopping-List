@@ -1,7 +1,5 @@
-from flask import render_template, redirect, url_for, flash
-from app.auth.views import logged_in_user
+from flask import render_template, redirect, url_for, flash, session
 from app.shoppingcart import ShoppingCart
-from app.auth.views import logged_in_user
 from .shoppinglist_form import ShoppingList
 
 from . import home
@@ -46,17 +44,16 @@ def newlist():
     if form.validate_on_submit():
         #insert to list
         item_id = len( shopping_lists ) + 1        
-        shopping_list = ShoppingCart(logged_in_user, form.title.data, form.price.data, 
+        shopping_list = ShoppingCart(session["email"], form.title.data, form.price.data, 
                                         form.quantity.data, item_id, form.description.data)
-        addToDic(logged_in_user, shopping_list)
+        addToDic(session["email"], shopping_list)
         result = shopping_lists
         flash("List saved okay")
         return render_template('home/dashboard.html', title="Dashboard", result = result)
 
-        #
     #Render the dashboard template on the /dashboard route    
     return render_template('home/newlist.html',form=form, title="Add new")
 
 @home.route('/dashboard')
 def dashboard():
-    return render_template("home/dashboard.html")
+    return render_template("home/dashboard.html" )

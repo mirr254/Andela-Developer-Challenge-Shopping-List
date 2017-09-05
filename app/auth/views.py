@@ -1,12 +1,9 @@
 from app.user import User
-from flask import flash, redirect, render_template, url_for
-from flask_login import login_required, login_user, logout_user
-
+from flask import flash, redirect, render_template, url_for, session
 from . import auth
 from .forms import LoginForm, RegistrationForm
 
 users = {}
-logged_in_user = None
 
 
 @auth.route("/register", methods=['GET', 'POST'])
@@ -25,14 +22,9 @@ def register():
         
 
         # add new user to list        
-        
-        users[logged_in_user] = user
-
-        #alert user to login
-        flash('You have successfully registered! You may now login.')
-
-        # redirect to the login page
-        return redirect(url_for('auth.login'))
+        session['email'] = user.email
+        session['logged_in'] = True
+        return redirect( url_for('home.dashboard'))
 
     # load registration template if error occured
     return render_template('auth/register.html', form=form, title='Register')
@@ -66,7 +58,6 @@ def login():
 
 
 @auth.route("/logout")
-@login_required
 def logout():
     """
     Handle requests to the /logout route

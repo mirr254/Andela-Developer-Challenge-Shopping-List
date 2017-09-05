@@ -35,14 +35,21 @@
                 <a class="navbar-brand" href="{{ url_for("home.homepage")}}">Shopping List</a>
               </div>
               <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url_for("home.homepage")}}">Home</a></li>
-                <li><a href="{{ url_for("home.dashboard")}}">dashboard</a></li>
-                <li><a href="{{ url_for("home.newlist")}}">Add new list</a></li>
+                {% if session.logged_in %}
+                  <li class="active"><a href="{{ url_for("home.homepage")}}">Home</a></li>
+                  <li><a href="{{ url_for("home.dashboard")}}">dashboard</a></li>
+                  <li><a href="{{ url_for("home.newlist")}}">Add new list</a></li>
+                {% endif %}
+
                 
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url_for("auth.register") }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="{{ url_for("auth.login") }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% if not session.logged_in %}
+                  <li><a href="{{ url_for("auth.register") }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="{{ url_for("auth.login") }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% else %}
+                <li><a href="{{ url_for("auth.logout") }}"><span class="glyphicon glyphicon-user"></span> Sign out</a></li>
+                {% endif %}
               </ul>
             </div>
           </nav>

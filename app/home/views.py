@@ -9,7 +9,7 @@ from . import home
 shopping_lists = {}
 
 #method to remove item from the cart
-def removeItem(self, item_name):
+def removeItem(item_name):
 
     if isinstance( item_name, str):
         pass
@@ -17,9 +17,14 @@ def removeItem(self, item_name):
         raise ValueError
 
 #a method to calculate total cost
-def calculatePrice(self, price, quantity):        
+def calculatePrice(price, quantity):        
     total_amount = price * quantity
     return total_amount
+
+def addToDic(key, value):
+    key = "somekey"
+    shopping_lists.setdefault(key, [])
+    shopping_lists[key].append(value)
 
 ############# routes or endpoints ################################
 
@@ -44,6 +49,7 @@ def dashboard():
         item_id = len( shopping_lists ) + 1
         shopping_list = ShoppingCart(logged_in_user, form.item_name.data, form.price.data, 
                                         form.quantity.data, item_id)
+        addToDic(logged_in_user, shopping_list)
         pass
 
         #

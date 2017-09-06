@@ -33,7 +33,7 @@ def homepage():
     return render_template('home/index.html', title="Welcome")
 
 @home.route('/add-new', methods=['POST', 'GET'])
-def newlist():
+def newShoppinglist():
 
     #check if user is logged in
     # if not session["logged_in"]:
@@ -42,14 +42,12 @@ def newlist():
     
     form = ShoppingList()
     if form.validate_on_submit():
-        #insert to list
-        item_id = len( shopping_lists ) + 1        
-        shopping_list = ShoppingCart(session["email"], form.title.data, form.price.data, 
-                                        form.quantity.data, item_id, form.description.data)
-        addToDic(session["email"], shopping_list)
-        result = shopping_lists
+        #create a new shopping list
+        new_shopping_list = ShoppingList( form.title.data)
+        
+        
         flash("List saved okay")
-        return render_template('home/dashboard.html', title="Dashboard", result = result)
+        return render_template('home/dashboard.html', title="Dashboard" )
 
     #Render the dashboard template on the /dashboard route    
     return render_template('home/newlist.html',form=form, title="Add new")

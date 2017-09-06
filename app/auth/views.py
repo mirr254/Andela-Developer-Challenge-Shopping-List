@@ -42,7 +42,9 @@ def login():
 
             #check if password exists
             if user_account.password == form.password.data:
-                logged_in_user = form.email.data
+                # user sessions to keep track of logged in user   
+                session['email'] = user_account.email
+                session['logged_in'] = True
                 return redirect( url_for('home.dashboard'))
             
             flash("Sorry, password or email incorrect")

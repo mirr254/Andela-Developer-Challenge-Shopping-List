@@ -36,22 +36,33 @@
 
                 <div id="home" class="tab-pane fade in active">
                   <h3>HOME</h3>
-                  <p>{{ utils.flashed_messages() }}</p>                   
-                    <table class="table table-bordered">
-                        <thead>
-                          <tr>
-                            <th>Item name</th>
-                            <th>price</th>
-                            <th>quantity</th>
-                            <th>description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                           
-                          </tr>                          
-                        </tbody>
-                      </table>                   
+                  <p>{{ utils.flashed_messages() }}</p>  
+                   <!--Associate the logged in user with the lists according to email as key  -->
+                  {% if session["email"] in new_shopping_cart.keys() %}                
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>                            
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- users shopping list -->
+                        
+                        {% for list in new_shopping_cart[session["email"]] %}
+                       <tr id="{{ list.id }}">
+                          <td>{{ list.id }}
+                          <td>{{ list.title }}</td>
+                                                     
+                        </tr>   
+                        {% endfor %}                       
+                        
+                      </tbody>
+                    </table>   
+                    {% else %}
+                    
+                    <h4>You have no yet added any list </h4>
+                    {% endif %}
                   
                 </div>          
 

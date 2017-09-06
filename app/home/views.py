@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, flash, session
 from app.shoppingcart import ShoppingCart
 from .shoppinglist_form import ShoppingList
+from app.auth.views import users
 
 from . import home
 
@@ -22,6 +23,8 @@ def calculatePrice(price, quantity):
 def addToDic(key, value):    
     shopping_lists.setdefault(key, [])
     shopping_lists[key].append(value)
+    return shopping_lists
+
 
 ############# routes or endpoints ################################
 
@@ -32,7 +35,7 @@ def homepage():
 
     return render_template('home/index.html', title="Welcome")
 
-@home.route('/add-new', methods=['POST', 'GET'])
+@home.route('/new-list', methods=['POST', 'GET'])
 def newShoppinglist():
 
     #check if user is logged in
@@ -43,11 +46,12 @@ def newShoppinglist():
     form = ShoppingList()
     if form.validate_on_submit():
         #create a new shopping list
-        new_shopping_list = ShoppingList( form.title.data)
-        
+        shopping_cart = ShoppingCart( form.title.data, session['email'])
+        new_shopping_cart = addToDic(session["email"], shopping_cart)
+
         
         flash("List saved okay")
-        return render_template('home/dashboard.html', title="Dashboard" )
+        return render_template('home/dashboard.html', title="Dashboard", new_shopping_cart=new_shopping_cart)
 
     #Render the dashboard template on the /dashboard route    
     return render_template('home/newlist.html',form=form, title="Add new")

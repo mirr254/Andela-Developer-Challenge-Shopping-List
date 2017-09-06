@@ -1,12 +1,13 @@
 from app.item import Item
-from common_functions import get_random_id
+from app.common_functions import get_random_id
 
 class ShoppingCart(object): 
     
-    def __init__(self,title):
+    def __init__(self,title,owner_email):
 
         self.title = title
         self.items = []
+        self.owner_email = owner_email
         self.id = get_random_id()
 
     def add_item(self, item_name):

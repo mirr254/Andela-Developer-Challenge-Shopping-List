@@ -10,6 +10,8 @@ class ShoppingCart(object):
         self.owner_email = owner_email
         self.id = get_random_id()
 
+    
+
     def add_item(self, item_name):
         
         if item_name is None or len(item_name) < 1:
@@ -39,7 +41,7 @@ class ShoppingCart(object):
 
         self.title = new_title
 
-    def remove_item(self, item_id):
+    def delete_item(self, item_id):
         
         if not isinstance(item_id, int):
             return "Item id must be an Integer"

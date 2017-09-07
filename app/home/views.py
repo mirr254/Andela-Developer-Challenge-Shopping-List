@@ -1,29 +1,10 @@
-from flask import render_template, redirect, url_for, flash, session
+from flask import render_template, redirect, url_for, flash, session, request
 from app.shoppingcart import ShoppingCart
 from .shoppinglist_form import ShoppingList
 from app.auth.views import users
+from app.shoppinglist_ops import ShoppinglistManager
 
-from . import home
-
-shopping_lists = {}
-
-#method to remove item from the cart
-def removeItem(item_name):
-
-    if isinstance( item_name, str):
-        pass
-    else:
-        raise ValueError
-
-#a method to calculate total cost
-def calculatePrice(price, quantity):        
-    total_amount = price * quantity
-    return total_amount
-
-def addToDic(key, value):    
-    shopping_lists.setdefault(key, [])
-    shopping_lists[key].append(value)
-    return shopping_lists
+from . import home  
 
 
 ############# routes or endpoints ################################
@@ -35,7 +16,7 @@ def homepage():
 
     return render_template('home/index.html', title="Welcome")
 
-@home.route('/new-list', methods=['POST', 'GET'])
+@home.route('/lists', methods=['POST', 'GET'])
 def newShoppinglist():
 
     #check if user is logged in
@@ -47,14 +28,32 @@ def newShoppinglist():
     if form.validate_on_submit():
         #create a new shopping list
         shopping_cart = ShoppingCart( form.title.data, session['email'])
-        new_shopping_cart = addToDic(session["email"], shopping_cart)
-
         
+        new_shopping_cart = ShoppinglistManager().addToDic(session["email"], shopping_cart)
+                
         flash("List saved okay")
         return render_template('home/dashboard.html', title="Dashboard", new_shopping_cart=new_shopping_cart)
 
     #Render the dashboard template on the /dashboard route    
     return render_template('home/newlist.html',form=form, title="Add new")
+
+@home.route('/update/shopping-list/<_ids>', methods=['POST', 'GET'])
+def update_shoppinglist(_ids):  
+
+    # get selected shoppinglist
+    shoppinglist = ShoppinglistManager().get_shopping_list(_ids)
+    import pdb; pdb.set_trace()
+    form_object = shoppinglist
+    
+    
+    form = ShoppingList(obj=form_object)
+    if form.validate_on_submit():
+        form.populate_obj(form_object.title)
+        return redirect(url_for('dashboard'))
+
+    return render_template('home/newlist.html',form=form, title="Update")
+
+
 
 @home.route('/dashboard')
 def dashboard():

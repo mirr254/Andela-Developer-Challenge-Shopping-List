@@ -38,23 +38,26 @@
                   <h3>HOME</h3>
                   <p>{{ utils.flashed_messages() }}</p>  
                    <!--Associate the logged in user with the lists according to email as key  -->
-                  {% if session["email"] in new_shopping_cart.keys() %}                
+                  {% if new_shopping_cart != None %}                
                   <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Name</th>                            
+                          <th>Name</th>
+                          <th>Action</th>                            
                         </tr>
                       </thead>
                       <tbody>
                         <!-- users shopping list -->
                         
-                        {% for list in new_shopping_cart[session["email"]] %}
-                       <tr id="{{ list.id }}">
-                          <td>{{ list.id }}
-                          <td>{{ list.title }}</td>
-                                                     
-                        </tr>   
+                        {% for list in new_shopping_cart %}
+                          {% for new_list in list[session["email"]] %}
+                            <tr id="{{ new_list.id }}">
+                              <td>{{ new_list.id }}
+                              <td>{{ new_list.title }}</td>  
+                              <td><a class="btn mini blue-stripe" href="/update/shopping-list/{{ new_list.id }}">Edit</a></td>
+                            </tr>    
+                          {% endfor %}         
                         {% endfor %}                       
                         
                       </tbody>

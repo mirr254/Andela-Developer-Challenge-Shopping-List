@@ -10,10 +10,11 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Username', validators=[DataRequired()])
     first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired(), Length(min=6)])
+    last_name = StringField('Last Name', validators=[DataRequired()])
     password = PasswordField('Password', validators=[
                                         DataRequired(),
-                                        EqualTo('confirm_password')
+                                        EqualTo('confirm_password'),
+                                        Length(min=6)
                                         ])
     confirm_password = PasswordField('Confirm Password')
     submit = SubmitField('Register')

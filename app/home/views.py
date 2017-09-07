@@ -41,17 +41,28 @@ def newShoppinglist():
 def update_shoppinglist(_ids):  
 
     # get selected shoppinglist
-    shoppinglist = ShoppinglistManager().get_shopping_list(_ids)
-    #import pdb; pdb.set_trace()
+    shoppinglist = ShoppinglistManager().get_shopping_listObject(_ids)    
     form_object = shoppinglist
-    
+    #import pdb; pdb.set_trace()
     
     form = ShoppingList(obj=form_object)
     if form.validate_on_submit():
-        form.populate_obj(form_object.title)
+        form.populate_obj(form_object)
         return redirect(url_for('dashboard'))
 
     return render_template('home/newlist.html',form=form, title="Update")
+
+
+@home.route('/delete/shopping-list/<_ids>', methods=['POST', 'GET'])
+def delete_shoppinglist(_ids):  
+
+    # get selected shoppinglist
+    is_delete = ShoppinglistManager().deleteList(_ids)
+    if is_delete == True:
+        flash("Item deleted successfully")
+        return redirect(url_for('dashboard'))
+
+    # return render_template('home/newlist.html',form=form, title="Update")
 
 
 

@@ -35,8 +35,7 @@
                 <a class="navbar-brand" href="{{ url_for("home.homepage")}}">Shopping List</a>
               </div>
               <ul class="nav navbar-nav">
-                {% if session.logged_in %}
-                  <li class="active"><a href="{{ url_for("home.homepage")}}">Home</a></li>
+                {% if session.logged_in %}                  
                   <li><a href="{{ url_for("home.dashboard")}}">dashboard</a></li>
                   <li><a href="{{ url_for("home.newShoppinglist")}}">Add new list</a></li>
                 {% endif %}

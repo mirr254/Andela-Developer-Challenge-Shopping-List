@@ -19,17 +19,25 @@ class ShoppinglistManager(object):
 
     def addToDic(self,key, value):
         if key not in self.shopping_lists.keys():
-            self.shopping_lists.setdefault(key, [])
+            self.shopping_lists.setdefault(key, []) #if shopping list is empty set slist[key]=default
         self.shopping_lists[key].append(value)
-        print(self.shopping_lists)
+        
         #self.all_shopping_list.append(self.shopping_lists)
         return self.shopping_lists
 
-    def get_shopping_list(self,list_id):
-        print(self.shopping_lists)
+    def get_shopping_listObject(self,list_id):
+       
         if isinstance(list_id, int):
-            # for all_list in self.all_shopping_list:                
-            #     if list_id in all_list[session["email"]].id:
-            #         #value exists update
-            #         return all_list[session["email"]]
-            pass
+            for all_list in self.shopping_lists:                
+                if list_id in all_list[session["email"]].id:
+                    #value exists for update
+                    print(all_list)
+                    return all_list[session["email"]]
+
+    def deleteList(self, list_id):
+        if isinstance(list_id, int):
+            list_to_delete = self.get_shopping_listObject(list_id)
+            print(list_to_delete)
+            return True
+
+            

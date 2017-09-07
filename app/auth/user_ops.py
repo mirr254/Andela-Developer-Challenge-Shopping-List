@@ -2,11 +2,16 @@ class UserManager(object):
 
     users = {}
 
-    def login(self, email, password):        
-        if email in self.users.keys() and self.users[email].password:
-            return True  
+    def login(self, email, password):     
+        if email in self.users.keys():
+            import pdb; pdb.set_trace()
+            for usrs in self.users.values():
+                if usrs.password == password:
+                    return True
+             
 
     def register(self,key, value):
-        if key not in self.users.keys():
-            self.users.setdefault(key, []) #if shopping list is empty set slist[key]=default
-        self.users[key].append(value)
+        #check if dic is empty
+        if not self.users:
+            self.users[key] = value
+        self.users.update(key=value)

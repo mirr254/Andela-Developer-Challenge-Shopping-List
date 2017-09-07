@@ -1,7 +1,8 @@
-from app.user import User
+from .user_class import User
 from flask import flash, redirect, render_template, url_for, session
 from . import auth
 from .forms import LoginForm, RegistrationForm
+
 
 users = {}
 
@@ -13,11 +14,11 @@ def register():
     Add a user to the database through the registration form
     """
     form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data,
-                            first_name=form.first_name.data,
-                            last_name=form.last_name.data,
+    if form.validate_on_submit(): 
+        user = User().registerUser(username=form.username.data,
                             email=form.email.data,
+                            first_name=form.first_name.data,
+                            last_name=form.last_name.data,                            
                             password=form.password.data)
         
 

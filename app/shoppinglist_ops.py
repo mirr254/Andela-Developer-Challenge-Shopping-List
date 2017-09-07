@@ -22,7 +22,6 @@ class ShoppinglistManager(object):
             self.shopping_lists.setdefault(key, []) #if shopping list is empty set slist[key]=default
         self.shopping_lists[key].append(value)
         
-        #self.all_shopping_list.append(self.shopping_lists)
         return self.shopping_lists
 
     def get_shopping_listObject(self,list_id):

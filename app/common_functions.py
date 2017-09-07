@@ -15,3 +15,4 @@ def get_class_attributes(instance_of_class):
         attributes_dict[member] = getattr(instance_of_class, member)
 
     return attributes_dict
+

@@ -13,21 +13,11 @@ class RegistrationForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired()])
     password = PasswordField('Password', validators=[
                                         DataRequired(),
-                                        EqualTo('confirm_password'),
+                                        EqualTo('confirm_password', message='Password mismatch'),
                                         Length(min=6)
                                         ])
     confirm_password = PasswordField('Confirm Password')
     submit = SubmitField('Register')
-
-    def validate_email(self, field):
-        #check if email exists
-        pass
-            #raise ValidationError('Email is already in use.')
-
-    def validate_username(self, field):
-        #check if username exists
-        pass
-            #raise ValidationError('Username is already in use.')
 
 class LoginForm(FlaskForm):
     """

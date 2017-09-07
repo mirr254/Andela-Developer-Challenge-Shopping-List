@@ -1,7 +1,6 @@
 from flask import render_template, redirect, url_for, flash, session, request
 from app.shoppingcart import ShoppingCart
 from .shoppinglist_form import ShoppingList
-from app.auth.views import users
 from app.shoppinglist_ops import ShoppinglistManager
 
 from . import home  

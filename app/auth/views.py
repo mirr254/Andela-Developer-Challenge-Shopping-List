@@ -1,28 +1,26 @@
-from .user_class import User
+from .user_class import Userr
+from .user_ops import UserManager
 from flask import flash, redirect, render_template, url_for, session
 from . import auth
 from .forms import LoginForm, RegistrationForm
 
-
-users = {}
-
-
 @auth.route("/register", methods=['GET', 'POST'])
 def register():
-    """
-    Handle requests to the /register route
-    Add a user to the database through the registration form
-    """
+    
+    #Handle requests to the /register route and add new user
+    
     form = RegistrationForm()
     if form.validate_on_submit(): 
-        user = User().registerUser(username=form.username.data,
+        #import pdb; pdb.set_trace()
+        user = Userr(username=form.username.data,
                             email=form.email.data,
-                            first_name=form.first_name.data,
-                            last_name=form.last_name.data,                            
-                            password=form.password.data)
+                            f_name=form.first_name.data,                            
+                            l_name=form.last_name.data,
+                            password=form.password.data,
+                            )
         
-
-        # add new user to list        
+        # add new user to list     
+        UserManager().register(user.email, user)
         session['email'] = user.email
         session['logged_in'] = True
         return redirect( url_for('home.dashboard'))
@@ -38,20 +36,13 @@ def login():
     """
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data in users.keys(): #email is correct
-            user_account = users[ form.email.data ]
-
-            #check if password exists
-            if user_account.password == form.password.data:
-                # user sessions to keep track of logged in user   
-                session['email'] = user_account.email
-                session['logged_in'] = True
-                return redirect( url_for('home.dashboard'))
+        is_correct_user = UserManager().login(form.email.data, form.password.data)
+        if is_correct_user == True:
+            #redirect
+            session['email'] = form.email.data
+            session['logged_in'] = True
+            return redirect( url_for('home.dashboard'))      
             
-            flash("Sorry, password or email incorrect")
-            #redirect to the login page
-            return redirect(url_for('auth.login'))
-
         flash("Sorry, password or email incorrect")
         #redirect to the login page
         return redirect(url_for('auth.login'))

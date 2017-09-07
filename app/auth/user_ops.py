@@ -14,4 +14,5 @@ class UserManager(object):
         #check if dic is empty
         if not self.users:
             self.users[key] = value
-        self.users.update(key=value)
+        else:
+            self.users.update(key=value)

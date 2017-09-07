@@ -42,7 +42,7 @@ def update_shoppinglist(_ids):
 
     # get selected shoppinglist
     shoppinglist = ShoppinglistManager().get_shopping_list(_ids)
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     form_object = shoppinglist
     
     

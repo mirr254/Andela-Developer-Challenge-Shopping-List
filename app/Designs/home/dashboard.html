@@ -50,15 +50,14 @@
                       <tbody>
                         <!-- users shopping list -->
                         
-                        {% for list in new_shopping_cart %}
-                          {% for new_list in list[session["email"]] %}
+                        
+                          {% for new_list in new_shopping_cart[session["email"]] %}
                             <tr id="{{ new_list.id }}">
                               <td>{{ new_list.id }}
                               <td>{{ new_list.title }}</td>  
                               <td><a class="btn mini blue-stripe" href="/update/shopping-list/{{ new_list.id }}">Edit</a></td>
-                            </tr>    
-                          {% endfor %}         
-                        {% endfor %}                       
+                            </tr>                                      
+                          {% endfor %}                       
                         
                       </tbody>
                     </table>   

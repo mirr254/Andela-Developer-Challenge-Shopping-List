@@ -21,42 +21,55 @@
           
           <ul class="nav nav-tabs nav-stacked">
             <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-            <li><a data-toggle="tab" href="#new">Create a new Lists</a></li>
-            <li><a data-toggle="tab" href="#My Profile">Shared Lists</a></li>
-            <li><a data-toggle="tab" href="#deleted">Dleted Lists</a></li>
+            
           </ul>
 
         </div>
 
+        <div class="col-md-6"> 
+            
+        </div>
         <div class="col-md-6"> 
           <!-- Tab content goes here -->
 
             <div class="tab-content">
 
                 <div id="home" class="tab-pane fade in active">
-                  <h3>HOME</h3>
-                  <p>{{ utils.flashed_messages() }}</p>
-                </div>
+                  <h3> Your Lists</h3>
+                  <p>{{ utils.flashed_messages() }}</p>  
+                   <!--Associate the logged in user with the lists according to email as key  -->
+                   {% if new_shopping_cart %}                
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Action</th>                            
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- users shopping list -->
+                        
+                        
+                          {% for new_list in new_shopping_cart[session["email"]] %}
+                            <tr id="{{ new_list.id }}">
+                              <td>{{ new_list.id }}
+                              <td>{{ new_list.title }}</td>  
+                              <td><a class="btn mini blue-stripe" href="/update/shopping-list/{{ new_list.id }}">Edit</a></td>
+                              <td><a class="btn mini blue-stripe" href="/delete/shopping-list/{{ new_list.id }}">Dlete</a></td>
+                              
+                            </tr>                                      
+                          {% endfor %} 
+                      </tbody>
+                    </table>   
+                    {% else %}
+                    
+                    <h4>You have no yet added any list </h4>
+                    {% endif %}
+                  
+                </div>          
 
-                <div id="new" class="tab-pane fade">
-                   <!-- new start -->
-                   {{ wtf.quick_form(form) }}
-
-                </div>
-
-                   <!-- New end -->
-
-                <div id="shared" class="tab-pane fade">
-                  <h3>Items that you have shared with your friends</h3>
-                  <p>Shared content go here</p>
-                </div>
-
-                <div id="deleted" class="tab-pane fade">
-                  <h3>Below is a list of your deleted items</h3>
-                  <p> Deleted Lists come here .</p>
-                </div>
-
-              </div>
+            </div>
 
         </div>
         

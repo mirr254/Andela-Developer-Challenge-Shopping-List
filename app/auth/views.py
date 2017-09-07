@@ -1,12 +1,9 @@
 from app.user import User
-from flask import flash, redirect, render_template, url_for
-from flask_login import login_required, login_user, logout_user
-
+from flask import flash, redirect, render_template, url_for, session
 from . import auth
 from .forms import LoginForm, RegistrationForm
 
 users = {}
-logged_in_user = None
 
 
 @auth.route("/register", methods=['GET', 'POST'])
@@ -25,14 +22,9 @@ def register():
         
 
         # add new user to list        
-        
-        users[logged_in_user] = user
-
-        #alert user to login
-        flash('You have successfully registered! You may now login.')
-
-        # redirect to the login page
-        return redirect(url_for('auth.login'))
+        session['email'] = user.email
+        session['logged_in'] = True
+        return redirect( url_for('home.dashboard'))
 
     # load registration template if error occured
     return render_template('auth/register.html', form=form, title='Register')
@@ -50,7 +42,9 @@ def login():
 
             #check if password exists
             if user_account.password == form.password.data:
-                logged_in_user = form.email.data
+                # user sessions to keep track of logged in user   
+                session['email'] = user_account.email
+                session['logged_in'] = True
                 return redirect( url_for('home.dashboard'))
             
             flash("Sorry, password or email incorrect")
@@ -66,13 +60,12 @@ def login():
 
 
 @auth.route("/logout")
-@login_required
 def logout():
     """
     Handle requests to the /logout route
     Log a user out through the logout link
     """
-    logged_in_user = None
+    session["logged_in"] = None
     flash('You have successfully been logged out.')
 
     # redirect to the login page

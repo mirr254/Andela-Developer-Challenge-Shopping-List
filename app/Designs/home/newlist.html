@@ -1,0 +1,52 @@
+<!-- Inherit the other header part from the base html -->
+{% extends "base.html" %}
+{% import "bootstrap/utils.html" as utils %} 
+{% import "bootstrap/wtf.html" as wtf %}   <!-- will be used to create the form to fill out shoppinglist -->
+{% block content %}
+
+<div class="container">
+      <div class="row">
+          <!-- <div class="col-md-6"></div> -->
+          <div class="col-md-3">
+                          <!--username  -->
+              <hr>
+          </div>
+      </div>
+
+      <!-- Tabs go here -->
+
+      <div class="row">
+
+        <div class="col-md-3">
+          
+          <ul class="nav nav-tabs nav-stacked">
+            <li class="active"><a data-toggle="tab" href="#home">Add New</a></li>
+            
+          </ul>
+
+        </div>
+
+        <div class="col-md-6"> 
+          <!-- Tab content goes here -->
+
+            <div class="tab-content">
+
+                <div id="home" class="tab-pane fade in active">
+                  <h3>Add new item</h3>
+                  <p>{{ utils.flashed_messages() }}</p>
+
+                  {{ wtf.quick_form(form) }}
+
+                  
+                </div>                
+
+              </div>
+
+        </div>
+        
+      </div>    
+        
+</div>
+
+        
+{% endblock %}

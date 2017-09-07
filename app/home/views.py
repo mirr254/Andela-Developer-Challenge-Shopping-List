@@ -10,10 +10,13 @@ from . import home
 
 @home.route('/')
 def homepage():
+    return redirect(url_for('auth.login'))
     
    # Render the homepage template on the / route
 
+
     return render_template('home/index.html', title="Welcome")
+
 
 @home.route('/lists', methods=['POST', 'GET'])
 def newShoppinglist():

@@ -1,28 +1,21 @@
 #This class is used to build test cases for user functionalities like addUser and deleteUser 
 import unittest
-from app.models import User
+from app.auth.user_ops import UserManager
 from app.models import addUser
 
 class UserFunctionalityTests( unittest.TestCase):
 
     #initialize the User class
     def setUp(self):
-        self.user = User("sam", "email@me", "pass34")
-        self.add_user = addUser
+        self.user = UserManager()
 
-    #check whether the method to delete user only accepts int type id
-    def test_if_deleteUser_accepts_intID(self):
-        self.assertRaises( ValueError, self.user.deleteUser, 12)
+    #assert that email in login is not int
+    def test_login_email_for_int(self):
+        self.assertRaises( ValueError, 123, "ertgf")
 
-    #test addUser pass is not int
-    def test_if_param1_is_string(self):
-        self.assertRaises(ValueError, self.add_user, 2,"sam","kung")
+    def test_login_email_for_int_if_pass_is_allInt(self):
+        self.assertRaises( ValueError, 123, 1234)
 
-    #test addUser pass is not int
-    def test_if_param2_is_string(self):
-        self.assertRaises(ValueError, self.add_user, "first", 2,"kung")
-
-    #test addUser pass is not empty
-    def test_if_param3_is_empty(self):
-        self.assertRaises(ValueError, self.add_user, 2,"sam","")
+    def test_login_email_for_int_if_passwrd_is_mixed(self):
+        self.assertRaises( ValueError, 123, "1234ertgf")
 

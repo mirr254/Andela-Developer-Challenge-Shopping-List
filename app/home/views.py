@@ -29,7 +29,7 @@ def newShoppinglist():
         shopping_cart = ShoppingCart( form.title.data, session['email'])
         
         new_shopping_cart = ShoppinglistManager().addToDic(session["email"], shopping_cart)
-                
+        #import pdb; pdb.set_trace()
         flash("List saved okay")
         return render_template('home/dashboard.html', title="Dashboard", new_shopping_cart=new_shopping_cart)
 
@@ -57,6 +57,7 @@ def delete_shoppinglist(_ids):
 
     # get selected shoppinglist
     is_delete = ShoppinglistManager().deleteList(_ids)
+    import pdb; pdb.set_trace()
     if is_delete == True:
         flash("Item deleted successfully")
         return redirect(url_for('dashboard'))

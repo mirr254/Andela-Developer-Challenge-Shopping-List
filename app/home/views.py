@@ -73,4 +73,4 @@ def dashboard():
     #else:
     #flash("You must be logged in to access this page")
     #return redirect(url_for('auth.login') )
-    return render_template("home/dashboard.html" )
+    return render_template("home/dashboard.html", title="Dashboard" )

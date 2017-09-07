@@ -35,10 +35,10 @@
             <div class="tab-content">
 
                 <div id="home" class="tab-pane fade in active">
-                  <h3>HOME</h3>
+                  <h3> Your Lists</h3>
                   <p>{{ utils.flashed_messages() }}</p>  
                    <!--Associate the logged in user with the lists according to email as key  -->
-                  {% if new_shopping_cart != None %}                
+                   {% if new_shopping_cart %}                
                   <table class="table table-hover">
                       <thead>
                         <tr>
@@ -50,7 +50,7 @@
                       <tbody>
                         <!-- users shopping list -->
                         
-                        {% if new_shopping_cart != None %}
+                        
                           {% for new_list in new_shopping_cart[session["email"]] %}
                             <tr id="{{ new_list.id }}">
                               <td>{{ new_list.id }}
@@ -59,9 +59,7 @@
                               <td><a class="btn mini blue-stripe" href="/delete/shopping-list/{{ new_list.id }}">Dlete</a></td>
                               
                             </tr>                                      
-                          {% endfor %}     
-                        {% endif %}                  
-                        
+                          {% endfor %} 
                       </tbody>
                     </table>   
                     {% else %}

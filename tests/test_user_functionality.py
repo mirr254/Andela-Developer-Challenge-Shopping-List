@@ -11,11 +11,11 @@ class UserFunctionalityTests( unittest.TestCase):
 
     #assert that email in login is not int
     def test_login_email_for_int(self):
-        self.assertRaises( ValueError, 123, "ertgf")
+        self.assertRaises( ValueError, self.user.login, 123, "ertgf")
 
     def test_login_email_for_int_if_pass_is_allInt(self):
-        self.assertRaises( ValueError, 123, 1234)
+        self.assertRaises( ValueError,self.user.login, 123, 1234)
 
     def test_login_email_for_int_if_passwrd_is_mixed(self):
-        self.assertRaises( ValueError, 123, "1234ertgf")
+        self.assertRaises( ValueError, self.user.login, 123, "1234ertgf")
 

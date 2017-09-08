@@ -43,14 +43,16 @@ def newShoppinglist():
 def update_shoppinglist(_ids):  
 
     # get selected shoppinglist
-    shoppinglist = ShoppinglistManager().get_shopping_listObject(_ids)    
+    ids = int(_ids)
+    shoppinglist = ShoppinglistManager().get_shopping_listObject(ids)
+    import pdb; pdb.set_trace()   
     form_object = shoppinglist
     #import pdb; pdb.set_trace()
     
     form = ShoppingList(obj=form_object)
     if form.validate_on_submit():
         form.populate_obj(form_object)
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('home.dashboard'))
 
     return render_template('home/newlist.html',form=form, title="Update")
 
@@ -59,11 +61,11 @@ def update_shoppinglist(_ids):
 def delete_shoppinglist(_ids):  
 
     # get selected shoppinglist
-    is_delete = ShoppinglistManager().deleteList(_ids)
-    import pdb; pdb.set_trace()
-    if is_delete == True:
+    ids = int(_ids)
+    is_deleted = ShoppinglistManager().deleteList(ids)
+    if is_deleted == True:
         flash("Item deleted successfully")
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('home.dashboard'))
 
     # return render_template('home/newlist.html',form=form, title="Update")
 
@@ -76,4 +78,5 @@ def dashboard():
     #else:
     #flash("You must be logged in to access this page")
     #return redirect(url_for('auth.login') )
-    return render_template("home/dashboard.html", title="Dashboard" )
+    new_shopping_cart = ShoppinglistManager.shopping_lists
+    return render_template("home/dashboard.html", title="Dashboard", new_shopping_cart=new_shopping_cart )

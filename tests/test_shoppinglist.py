@@ -5,7 +5,7 @@ from app.shoppinglist_ops import ShoppinglistManager
 class ShoppingListTest( unittest.TestCase ):
     
     def setUp(self):
-        self.shoppingList = ShoppinglistManager()
+        self.shoppingList = ShoppinglistManager() 
 
     #method to test value types in addItem
     def test_deleteList_method_returns_error_for_nonInt(self):

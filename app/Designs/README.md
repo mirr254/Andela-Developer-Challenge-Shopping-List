@@ -2,8 +2,6 @@
 
 The designs is handled by a branch named designBranch. This simulates the design team working on the similar project
 
-
-
 We use a bootstrap framework for the CSS and Javascript for all the pages. Going further, we use a CDN version of the bootstrap. According to research from this link 
 https://stackoverflow.com/questions/2180391/why-should-i-use-googles-cdn-for-jquery/2180401#2180401 there are a lot of good reason to use a CDN
 
@@ -29,7 +27,7 @@ A page to register new users. Uses email and password for registration
 
 OOP UML Diagram:
 
-![uml class diagram](https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/Designs/Shopping%20List%20UML.png)
+![uml class diagram]   (https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/Designs/Shopping%20List%20UML.png)
 
 The UML diagram is prepared using www.creately.com and can be found on the link 
 http://creately.com/diagram/example/j6tsr7291

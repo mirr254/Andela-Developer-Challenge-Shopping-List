@@ -1,8 +1,7 @@
 # Andela-Developer-Challenge-Shopping-List
 
-Travis CI build badge ![travis build pass](https://travis-ci.org/mirr254/Andela-Developer-Challenge-Shopping-List.svg?branch=master)
-
-Coverall badge [![Coverage Status](https://coveralls.io/repos/github/mirr254/Andela-Developer-Challenge-Shopping-List/badge.svg?branch=master)](https://coveralls.io/github/mirr254/Andela-Developer-Challenge-Shopping-List?branch=master)
+![travis build pass](https://travis-ci.org/mirr254/Andela-Developer-Challenge-Shopping-List.svg?branch=master) 
+![Coverage Status](https://coveralls.io/repos/github/mirr254/Andela-Developer-Challenge-Shopping-List/badge.svg?branch=master)](https://coveralls.io/github/mirr254/Andela-Developer-Challenge-Shopping-List?branch=master)
 
 The Andela Developer Challenge is founded on the premise that aspiring Technology Leaders learn programming whilst building things that matter. That the best way to learn code is by building a complete product. As we build applications that solve real problems, we internalize deeply the skills needed to be World Class Software Developers.
 
@@ -16,6 +15,12 @@ The innovative shopping list app is a web based application that allows users  t
 
 First thing done was to create a project for the Whole Shopping List challenge on the pivotal tracker web.
 And creating required stories for all the challenges:
+
+## Running Tests
+
+ To run unittests locally, install nose then point it to the tests folder located at tests folder of the project
+
+ nosetests tests/
 
 
 ## Flask Application

@@ -6,10 +6,11 @@ class UserManager(object):
         types = int, float
         if isinstance(email, types):
             raise ValueError   
-        if email in self.users.keys():            
-            for usrs in self.users.values():
-                if usrs.password == password:
+        if email in self.users.keys():                     
+            for usrs_obj_list in self.users[email]:
+                if usrs_obj_list.password == password:
                     return True
+            
              
 
     def register(self,key, value):
@@ -18,7 +19,9 @@ class UserManager(object):
         if not value:
             return("Value cannot be blank")
         #check if dic is empty
-        if not self.users:
-            self.users[key] = value
+        if key not in self.users.keys():
+            self.users.setdefault(key, []).append(value)            
+            return True
         else:
-            self.users.update(key=value)
+            return False
+    

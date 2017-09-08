@@ -1,14 +1,19 @@
 <!-- Implementing the wtf bootstrap for easier and faster processing of forms -->
 <!-- forms loaded app/auth/views.py -->
 {% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
 {% extends "base.html" %}
 {% block title %}Register{% endblock %}
 {% block content %}
 <div class="container">
     
           <div class="row">
-            <div class="col-md-3" ></div>
-            <div class="col-md-6" >               
+            <div class="col-md-3" >                  
+            </div>
+            <div class="col-md-6" > 
+                    <br/>
+                    {{ utils.flashed_messages() }}
+                    <br/>              
                 <h1>Register for an account</h1>
                 {{ wtf.quick_form(form) }}
             </div>

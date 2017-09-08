@@ -32,7 +32,6 @@ def newShoppinglist():
         shopping_cart = ShoppingCart( form.title.data, session['email'])
         
         new_shopping_cart = ShoppinglistManager().addToDic(session["email"], shopping_cart)
-        #import pdb; pdb.set_trace()
         flash("List saved okay")
         return render_template('home/dashboard.html', title="Dashboard", new_shopping_cart=new_shopping_cart)
 
@@ -44,10 +43,8 @@ def update_shoppinglist(_ids):
 
     # get selected shoppinglist
     ids = int(_ids)
-    shoppinglist = ShoppinglistManager().get_shopping_listObject(ids)
-    import pdb; pdb.set_trace()   
+    shoppinglist = ShoppinglistManager().get_shopping_listObject(ids)    
     form_object = shoppinglist
-    #import pdb; pdb.set_trace()
     
     form = ShoppingList(obj=form_object)
     if form.validate_on_submit():

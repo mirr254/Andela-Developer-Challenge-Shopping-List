@@ -20,10 +20,14 @@ def register():
                             )
         
         # add new user to list     
-        UserManager().register(user.email, user)
-        session['email'] = user.email
-        session['logged_in'] = True
-        return redirect( url_for('home.dashboard'))
+        is_register_ok = UserManager().register(user.email, user)
+        if is_register_ok:
+            session['email'] = user.email
+            session['logged_in'] = True
+            return redirect( url_for('home.dashboard'))
+        else:
+            flash("That email has been taken")
+            return redirect(url_for("auth.register"))
 
     # load registration template if error occured
     return render_template('auth/register.html', form=form, title='Register')

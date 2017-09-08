@@ -44,7 +44,7 @@
                       </thead>
                       <tbody>
                         <!-- users shopping list -->                      
-                          {% for new_list in new_shopping_cart.values() %}
+                          {% for new_list in new_shopping_cart[session["email"]] %}
                             <tr id="{{ new_list.id }}">
                               <td>{{ new_list.id }}
                               <td>{{ new_list.title }}</td>  

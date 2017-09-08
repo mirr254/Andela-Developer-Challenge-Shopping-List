@@ -30,8 +30,9 @@
             <div class="tab-content">
 
                 <div id="home" class="tab-pane fade in active">
+                    <p>{{ utils.flashed_messages() }}</p>
                   <h3> Your Lists</h3>
-                  <p>{{ utils.flashed_messages() }}</p>  
+                    
                    <!--Associate the logged in user with the lists according to email as key  -->
                    {% if new_shopping_cart %}                
                   <table class="table table-hover">

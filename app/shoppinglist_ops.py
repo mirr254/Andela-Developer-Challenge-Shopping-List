@@ -25,10 +25,8 @@ class ShoppinglistManager(object):
         
         if isinstance(list_id, int):            
             value_to_delete = self.get_shopping_listObject(list_id)           
-            new_dic_after_delete = {key:val for key, val in self.shopping_lists.items() if val != value_to_delete }
-            import pdb; pdb.set_trace()
-            self.shopping_lists = new_dic_after_delete
-                                     
+            new_dic_after_delete = {key:val for key, val in self.shopping_lists.items() if val == value_to_delete }            
+            self.shopping_lists = new_dic_after_delete                            
             return True
         else:
             raise ValueError

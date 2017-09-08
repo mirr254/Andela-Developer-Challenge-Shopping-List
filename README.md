@@ -1,6 +1,7 @@
 # Andela-Developer-Challenge-Shopping-List
 
 ![travis build pass](https://travis-ci.org/mirr254/Andela-Developer-Challenge-Shopping-List.svg?branch=master) 
+
 ![Coverage Status](https://coveralls.io/repos/github/mirr254/Andela-Developer-Challenge-Shopping-List/badge.svg?branch=master)](https://coveralls.io/github/mirr254/Andela-Developer-Challenge-Shopping-List?branch=master)
 
 The Andela Developer Challenge is founded on the premise that aspiring Technology Leaders learn programming whilst building things that matter. That the best way to learn code is by building a complete product. As we build applications that solve real problems, we internalize deeply the skills needed to be World Class Software Developers.
@@ -20,7 +21,7 @@ And creating required stories for all the challenges:
 
  To run unittests locally, install nose then point it to the tests folder located at tests folder of the project
 
- nosetests tests/
+ nosetests tests
 
 
 ## Flask Application

@@ -2,3 +2,8 @@ _pycache__/
 tests/__pycache__/
 app/__pycache__/
 app/home/__pycache__/
+app/auth/__pycache__/__init__.cpython-36.pyc
+app/auth/__pycache__/forms.cpython-36.pyc
+app/auth/__pycache__/user_class.cpython-36.pyc
+app/auth/__pycache__/user_ops.cpython-36.pyc
+app/auth/__pycache__/views.cpython-36.pyc

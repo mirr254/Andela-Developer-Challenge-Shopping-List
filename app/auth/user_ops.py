@@ -13,9 +13,9 @@ class UserManager(object):
              
 
     def register(self,key, value):
-        if len(key) < 1:
+        if not key:
             return("Key cannot be blank")
-        if len(value) < 1:
+        if not value:
             return("Value cannot be blank")
         #check if dic is empty
         if not self.users:

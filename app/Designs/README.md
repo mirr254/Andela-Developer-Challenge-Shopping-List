@@ -27,7 +27,7 @@ A page to register new users. Uses email and password for registration
 
 OOP UML Diagram:
 
-![uml class diagram]   (https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/Designs/Shopping%20List%20UML.png)
+![uml class diagram](https://github.com/mirr254/Andela-Developer-Challenge-Shopping-List/blob/master/app/Designs/ShoppingListUML.png)
 
 The UML diagram is prepared using www.creately.com and can be found on the link 
 http://creately.com/diagram/example/j6tsr7291

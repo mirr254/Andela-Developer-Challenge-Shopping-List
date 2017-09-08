@@ -1,7 +1,6 @@
 #This class is used to build test cases for user functionalities like addUser and deleteUser 
 import unittest
 from app.auth.user_ops import UserManager
-from app.models import addUser
 
 class UserFunctionalityTests( unittest.TestCase):
 

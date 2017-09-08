@@ -1,7 +1,9 @@
 from flask import render_template, redirect, url_for, flash, session, request
 from app.shoppingcart import ShoppingCart
+from app.item import Item
 from .shoppinglist_form import ShoppingList
 from app.shoppinglist_ops import ShoppinglistManager
+from app.item_ops import ItemManager
 from .list_item_form import itemForm
 
 from . import home  
@@ -32,7 +34,7 @@ def newShoppinglist():
         flash("List saved okay")
         return render_template('home/dashboard.html', title="Dashboard", new_shopping_cart=new_shopping_cart)
 
-    #Render the dashboard template on the /dashboard route    
+    #Render the new lis template on the /dashboard route    
     return render_template('home/newlist.html',form=form, title="Add new")
 
 @home.route('/update/shopping-list/<_ids>', methods=['POST', 'GET'])
@@ -85,13 +87,17 @@ def dashboard():
     new_shopping_cart = ShoppinglistManager.shopping_lists
     return render_template("home/dashboard.html", title="Dashboard", new_shopping_cart=new_shopping_cart )
 
-@home.route('/shoppinglist/<list_id>/add-item', methods=['POST', 'GET'])
-def new_item(list_id):
+# @home.route('/shoppinglist/<list_id>/add-item', methods=['POST', 'GET'])
+# def new_item(list_id):
 
-    list_id_int = int(list_id)
+#     list_id_int = int(list_id)
 
-    form = itemForm()
-    if form.validate_on_submit():
-        pass
+#     form = itemForm()
+#     if form.validate_on_submit():
+#         item = Item(name=form.data.name, list_id_int)
+#         new_item = ItemManager().addToDic(list_id_int, item)
+#         flash("Item saved")
 
-
+    
+#     #Render the newitem template on the /dashboard route    
+#     return render_template('home/newitem.html',form=form, title="Add new")

@@ -24,7 +24,7 @@ def register():
         if is_register_ok:
             session['email'] = user.email
             session['logged_in'] = True
-            return redirect( url_for('home.dashboard'))
+            return redirect( url_for('auth.login'))
         else:
             flash("That email has been taken")
             return redirect(url_for("auth.register"))
@@ -34,10 +34,8 @@ def register():
 
 @auth.route("/login", methods=['GET', 'POST'])
 def login():
-    """
-    Handle requests to the /login route
-    Log an user in through the login form
-    """
+    
+    #Log an user in through the login form    
     form = LoginForm()
     if form.validate_on_submit():
         is_correct_user = UserManager().login(form.email.data, form.password.data)
@@ -57,10 +55,9 @@ def login():
 
 @auth.route("/logout")
 def logout():
-    """
-    Handle requests to the /logout route
-    Log a user out through the logout link
-    """
+   
+    #Log a user out through the logout link
+    
     session["logged_in"] = None
     flash('You have successfully been logged out.')
 

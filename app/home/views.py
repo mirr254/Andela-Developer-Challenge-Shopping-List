@@ -19,11 +19,6 @@ def homepage():
 
 @home.route('/lists', methods=['POST', 'GET'])
 def newShoppinglist():
-
-    #check if user is logged in
-    if not session["logged_in"] == False:
-        flash("You must be logged in to access this page")
-        return redirect( url_for('auth.login'))
     
     form = ShoppingList()
     if form.validate_on_submit():
@@ -39,11 +34,6 @@ def newShoppinglist():
 
 @home.route('/update/shopping-list/<_ids>', methods=['POST', 'GET'])
 def update_shoppinglist(_ids):
-
-    #check if user is logged in
-    if not session["logged_in"] == False:
-        flash("You must be logged in to access this page")
-        return redirect( url_for('auth.login'))
 
     # get selected shoppinglist
     ids = int(_ids)
@@ -61,11 +51,6 @@ def update_shoppinglist(_ids):
 @home.route('/delete/shopping-list/<_ids>', methods=['POST', 'GET'])
 def delete_shoppinglist(_ids):
 
-    #check if user is logged in
-    if not session["logged_in"] = False:
-        flash("You must be logged in to access this page")
-        return redirect( url_for('auth.login'))
-
     # get selected shoppinglist
     ids = int(_ids)
     is_deleted = ShoppinglistManager().deleteList(ids)
@@ -79,10 +64,7 @@ def delete_shoppinglist(_ids):
 
 @home.route('/dashboard')
 def dashboard():
-    #check if user is logged in
-    if not session["logged_in"] == False:
-        flash("You must be logged in to access this page")
-        return redirect( url_for('auth.login'))
+    
 
     new_shopping_cart = ShoppinglistManager.shopping_lists
     return render_template("home/dashboard.html", title="Dashboard", new_shopping_cart=new_shopping_cart )

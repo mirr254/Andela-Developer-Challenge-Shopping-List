@@ -77,3 +77,8 @@ def dashboard():
     #return redirect(url_for('auth.login') )
     new_shopping_cart = ShoppinglistManager.shopping_lists
     return render_template("home/dashboard.html", title="Dashboard", new_shopping_cart=new_shopping_cart )
+
+@home.route('/shoppinglist/<list_id>/add-item')
+def new_item(list_id):
+
+    list_id_int = int(list_id)

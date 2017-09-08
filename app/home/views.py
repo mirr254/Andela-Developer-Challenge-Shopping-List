@@ -21,7 +21,7 @@ def homepage():
 def newShoppinglist():
 
     #check if user is logged in
-    if not session["logged_in"]:
+    if not session["logged_in"] == False:
         flash("You must be logged in to access this page")
         return redirect( url_for('auth.login'))
     
@@ -41,7 +41,7 @@ def newShoppinglist():
 def update_shoppinglist(_ids):
 
     #check if user is logged in
-    if not session["logged_in"]:
+    if not session["logged_in"] == False:
         flash("You must be logged in to access this page")
         return redirect( url_for('auth.login'))
 
@@ -62,7 +62,7 @@ def update_shoppinglist(_ids):
 def delete_shoppinglist(_ids):
 
     #check if user is logged in
-    if not session["logged_in"]:
+    if not session["logged_in"] = False:
         flash("You must be logged in to access this page")
         return redirect( url_for('auth.login'))
 
@@ -80,7 +80,7 @@ def delete_shoppinglist(_ids):
 @home.route('/dashboard')
 def dashboard():
     #check if user is logged in
-    if not session["logged_in"]:
+    if not session["logged_in"] == False:
         flash("You must be logged in to access this page")
         return redirect( url_for('auth.login'))
 
